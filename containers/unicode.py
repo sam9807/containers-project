@@ -46,7 +46,7 @@ class NormalizedStr:
         The output is similar, but not exactly
         the same, as the __repr__ function.
         '''
-        normalized = unicodedata.normalize(self.normal_form, self.text)
+        normalized = unicodedata.normalize(self.norm, self.text)
         return normalized
 
     def __len__(self):
