@@ -28,6 +28,7 @@ class NormalizedStr:
         self.norm = normal_form
         self.text = unicodedata.normalize(self.norm, text)
         self.i = -1
+        self.n = len(self.text)
 
     def __repr__(self):
         '''
