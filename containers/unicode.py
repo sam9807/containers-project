@@ -107,8 +107,8 @@ class NormalizedStr:
         Therefore, you must renormalize the
         strings after adding them together.
         '''
-        copy = unicodedata.normalize(self.norm, self.text
-                                   + unicodedata.normalize(self.norm, str(b)))
+        temp = self.text + unicodedata.normalize(self.norm, str(b))
+        copy = unicodedata.normalize(self.norm, temp)
         return NormalizedStr(copy, self.norm)
 
     def __iter__(self):
