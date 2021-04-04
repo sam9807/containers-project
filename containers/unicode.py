@@ -120,7 +120,7 @@ class NormalizedStr:
         class with the appropriate magic methods,
         and return an instance of that class here.
         '''
-        return NormalizedStr2(self.text, self.norm)
+        return NormalizedStr2(self.text, self.n)
 
 
 class NormalizedStr2:
