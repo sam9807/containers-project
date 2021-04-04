@@ -130,7 +130,7 @@ class NormalizedStr2:
         self.norm = norm
 
     def __next__(self):
-        while self.i < self.text:
+        while self.i < self.norm:
             self.i += 1
             return self.text[self.i - 1]
         raise StopIteration
