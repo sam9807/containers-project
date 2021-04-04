@@ -124,13 +124,13 @@ class NormalizedStr:
 
 
 class NormalizedStr2:
-    def __init__(self, text, norm):
+    def __init__(self, text, n):
         self.text = text
         self.i = 0
-        self.norm = norm
+        self.n = n
 
     def __next__(self):
-        while self.i < self.norm:
+        while self.i < self.n:
             self.i += 1
             return self.text[self.i - 1]
         raise StopIteration
