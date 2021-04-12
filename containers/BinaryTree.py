@@ -76,6 +76,8 @@ class BinaryTree():
         you as a reference on how to write recursive functions
         on recursive data structures.
         '''
+        a = 'Traversal type '
+        b = ' is not supported.'
         if traversal_type == 'preorder':
             return self.preorder_print(self.root, '')
         elif traversal_type == 'inorder':
@@ -83,8 +85,7 @@ class BinaryTree():
         elif traversal_type == 'postorder':
             return self.postorder_print(self.root, '')
         else:
-            raise ValueError('Traversal type '
-                             + str(traversal_type) + ' is not supported.')
+            raise ValueError(a + str(traversal_type) + b)
 
     def preorder_print(self, start, traversal):
         '''
@@ -137,6 +138,8 @@ class BinaryTree():
         FIXME:
         Implement this function by modifying the _print functions above.
         '''
+        a = 'traversal_type='
+        b = 'is not supported.'
         if traversal_type == 'preorder':
             return self.preorder(self.root, [])
         elif traversal_type == 'inorder':
@@ -144,8 +147,7 @@ class BinaryTree():
         elif traversal_type == 'postorder':
             return self.postorder(self.root, [])
         else:
-            raise ValueError('traversal_type=' +
-                             str(traversal_type) + ' is not supported.')
+            raise ValueError(a + str(traversal_type) + b)
 
     def preorder(self, start, traversal):
         '''
