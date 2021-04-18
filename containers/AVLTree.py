@@ -54,6 +54,8 @@ class AVLTree():
         FIXME:
         Implement this function.
         '''
+        if not AVLTree._is_bst_satisfied(node):
+            return False
         if AVLTree._balance_factor(node) not in [-1, 0, 1]:
             return False
         if node and AVLTree._balance_factor(node) in [-1, 0, 1]:
