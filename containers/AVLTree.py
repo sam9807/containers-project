@@ -6,7 +6,6 @@ but there are fewer of them.
 '''
 
 from containers.BinaryTree import BinaryTree, Node
-from containers.BST import BST
 
 
 class AVLTree():
@@ -58,7 +57,7 @@ class AVLTree():
         if node and AVLTree._balance_factor(node) in [-1, 0, 1]:
             if node.left and node.right:
                 return AVLTree._is_avl_satisfied(node.left)\
-                        and AVLTree._is_avl_satisfied(node.right)
+                    and AVLTree._is_avl_satisfied(node.right)
             if node.left and node.right is None:
                 return AVLTree._is_avl_satisfied(node.left)
             if node.right and node.left is None:
