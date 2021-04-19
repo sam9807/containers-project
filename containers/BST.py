@@ -101,6 +101,8 @@ class BST(BinaryTree):
         methods just like this one.
         '''
         ret = True
+        if node is None:
+            return True
         if node.left:
             if node.value >= BST._find_largest(node.left):
                 ret &= BST._is_bst_satisfied(node.left)
