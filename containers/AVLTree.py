@@ -25,6 +25,9 @@ class AVLTree():
         Implement this function.
         '''
         super().__init__()
+        if xs is not None:
+            for x in xs:
+                self.insert(x)
 
     def balance_factor(self):
         '''
