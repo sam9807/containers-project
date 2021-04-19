@@ -7,10 +7,9 @@ but there are fewer of them.
 
 from containers.BinaryTree import BinaryTree, Node
 from containers.BST import BST
-__all__ = ('BST',)
 
 
-class AVLTree():
+class AVLTree(BST):
     '''
     FIXME:
     AVLTree is currently not a subclass of BST.
