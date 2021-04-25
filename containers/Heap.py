@@ -78,8 +78,6 @@ class Heap(BinaryTree):
         FIXME:
         Implement this method.
         '''
-        a = Heap._is_heap_satisfied(node.left)
-        b = Heap._is_heap_satisfied(node.right)
         if node is None or (node.left is None and node.right is None):
             return True
 
@@ -87,6 +85,8 @@ class Heap(BinaryTree):
             return node.value <= node.left.value
 
         elif node.value <= node.left.value and node.value <= node.right.value:
+            a = Heap._is_heap_satisfied(node.left)
+            b = Heap._is_heap_satisfied(node.right)
             return a and b
 
         else:
@@ -247,18 +247,18 @@ class Heap(BinaryTree):
 
     @staticmethod
     def _down(node):
-        c = node.left.value
-        d = node.right.value
         if node.left is None and node.right is None:
             return node
-        if node.left and (node.right is None or c <= d):
+        if node.left and (node.right is None or node.left.value
+                          <= node.right.value):
             if node.left.value < node.value:
                 new_parent = node.left.value
                 new_left = node.value
                 node.value = new_parent
                 node.left.value = new_left
             node.left = Heap._down(node.left)
-        elif node.right and (node.left is None or d <= c):
+        elif node.right and (node.left is None or node.right.value
+                             <= node.left.value):
             if node.right.value < node.value:
                 new_parent = node.right.value
                 new_right = node.value
