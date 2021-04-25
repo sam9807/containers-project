@@ -130,25 +130,25 @@ class Heap(BinaryTree):
         if node.left and node.right:
             node.left = Heap._insert(node.left, value)
             if node.value > node.left.value:
-                return Heap._Up(node, value)
+                return Heap._up(node, value)
         if node.left is None:
             node.left = Node(value)
             if node.value > node.left.value:
-                return Heap._Up(node, value)
+                return Heap._up(node, value)
         elif node.right is None:
             node.right = Node(value)
             if node.value > node.right.value:
-                return Heap._Up(node, value)
+                return Heap._up(node, value)
         return node
 
     @staticmethod
-    def _Up(node, value):
+    def _up(node, value):
         if Heap._is_heap_satisfied(node) is True:
             return node
         if node.left and node.left.value > node.value:
-            node.left = Heap._Up(node.left, value)
+            node.left = Heap._up(node.left, value)
         if node.right and node.right.value > node.value:
-            node.right = Heap._Up(node.right, value)
+            node.right = Heap._up(node.right, value)
         if node.left:
             if node.left.value == value:
                 new_parent = node.left.value
@@ -221,7 +221,7 @@ class Heap(BinaryTree):
             else:
                 self.root.value = replace_right
             if Heap._is_heap_satisfied(self.root) is False:
-                return Heap._Down(self.root)
+                return Heap._down(self.root)
 
     @staticmethod
     def _remove(node):
@@ -237,16 +237,16 @@ class Heap(BinaryTree):
         return node
 
     @staticmethod
-    def _Right(node):
+    def _rightmove(node):
         if node.left is None and node.right is None:
             return node.value
         elif node.right:
-            return Heap._Right(node.right)
+            return Heap._rightmove(node.right)
         elif node.left:
-            return Heap._Right(node.left)
+            return Heap._rightmove(node.left)
 
     @staticmethod
-    def _Down(node):
+    def _down(node):
         c = node.left.value
         d = node.right.value
         if node.left is None and node.right is None:
@@ -257,12 +257,12 @@ class Heap(BinaryTree):
                 new_left = node.value
                 node.value = new_parent
                 node.left.value = new_left
-            node.left = Heap._Down(node.left)
+            node.left = Heap._down(node.left)
         elif node.right and (node.left is None or d <= c):
             if node.right.value < node.value:
                 new_parent = node.right.value
                 new_right = node.value
                 node.value = new_parent
                 node.right.value = new_right
-            node.right = Heap._Down(node.right)
+            node.right = Heap._down(node.right)
         return node
