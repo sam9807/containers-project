@@ -249,16 +249,14 @@ class Heap(BinaryTree):
     def _down(node):
         if node.left is None and node.right is None:
             return node
-        if node.left and (node.right is None
-                          or node.left.value <= node.right.value):
+        if node.left and (node.right is None or node.left.value <= node.right.value):
             if node.left.value < node.value:
                 new_parent = node.left.value
                 new_left = node.value
                 node.value = new_parent
                 node.left.value = new_left
             node.left = Heap._down(node.left)
-        elif node.right and (node.left is None
-                             or node.right.value <= node.left.value):
+        elif node.right and (node.left is None or node.right.value <= node.left.value):
             if node.right.value < node.value:
                 new_parent = node.right.value
                 new_right = node.value
