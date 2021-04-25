@@ -214,7 +214,7 @@ class Heap(BinaryTree):
         elif self.root.left is None and self.root.right is None:
             self.root = None
         else:
-            replace_right = Heap._find_right(self.root)
+            replace_right = Heap._rightmove(self.root)
             self.root = Heap._remove(self.root)
             if replace_right == self.root.value:
                 return
