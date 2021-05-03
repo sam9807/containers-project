@@ -1,5 +1,9 @@
 # containers
 
+This package was created for the Containers project for CMC CSCI046 Data Structures course.
+
+The `LICENSE` has been included. 
+
 Build status:
 
 1. [![](https://github.com/sam9807/containers-project/workflows/tests-fibonacci/badge.svg)](https://github.com/sam9807/containers-project/actions?query=workflow%3Atests-fibonacci)
